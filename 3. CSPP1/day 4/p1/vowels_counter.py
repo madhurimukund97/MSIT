@@ -11,11 +11,11 @@ def main():
     #s = raw_input()
     # the input string is in s
     # remove pass and start your code here
-    string = input("string=")
+    string = input()
     count = 0
     for char in string:
         if char in ('a', 'e', 'i', 'o', 'u'):
             count += 1
-    print('Number of vowels: '+str(count))
+    print(str(count))
 if __name__ == "__main__":
     main()
