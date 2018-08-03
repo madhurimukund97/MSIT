@@ -11,7 +11,7 @@ def main():
     #s = raw_input()
     # the input string is in s
     # remove pass and start your code here
-    string = input("string=")
+    string = input()
     count = 0
     sub_len = len('bob')
     for i in range(len(string)):
