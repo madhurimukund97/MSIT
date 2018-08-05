@@ -10,14 +10,17 @@ def main():
     '''
     num = int(input())
     mul = 1
+    temp = num
     if num < 0:
         num = -num
     elif num == 0:
         mul = 0
-    while num > 0:
+    while num != 0:
         rem = num%10
         mul = mul*rem
         num = num//10
+    if temp < 0:
+        mul = -mul
     print(mul)
 if __name__ == "__main__":
     main()
