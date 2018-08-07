@@ -15,7 +15,7 @@ def odd(x_1):
     returns: True if x is odd, False otherwise
     '''
     # Your code here
-    return x_1%2 == 0
+    return x_1%2 == 1
 def main():
     '''main'''
     data = input()
