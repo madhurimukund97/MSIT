@@ -11,15 +11,14 @@ def main():
     string1 = input()
     length1 = len(string1)
     print(length1)
-    string2 = ""
+    add = ""
     count = 0
-    i=0
-    while(count>length1):
-    	for i in range(string1):
-    		print(string1[i])
-    		count+=1
-    '''for char in string1:
-    	print(char, end="")'''
+    for i in range(length1):
+    	print(string1[i])
+    	if((string1[i]>='a' and strin1[i]<='z') or (string1[i]>='A' and string1[i]<='Z'))
+    		add = add + string1[i]
+    	if string1[i]=='!' or string1[i]=='@' or string1[i]=='#' or string1[i]=='$' or string1[i]=='%' or string1[i]=='^' or string1[i]=='&' or string1[i]=='*':
+    		add = add + " "
 
 
     
