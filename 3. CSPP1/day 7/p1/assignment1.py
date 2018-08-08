@@ -12,14 +12,18 @@ def factorial(num):
     returns: a positive integer, the factorial of n.
     '''
     # Your code here
-    if num == 0:
+    temp = num
+    if temp == 0:
         return 1
-    else:
-        return num * factorial(num-1)
+    if num == 1:
+        return num
+    return num * factorial(num-1)
 def main():
     '''main'''
     a_1 = input()
     print(factorial(int(a_1)))
 
 if __name__ == "__main__":
+    import sys
+    sys.setrecursionlimit(25500)
     main()
