@@ -12,14 +12,19 @@ def sumofdigits(num):
     returns: a positive integer, the sum of digits of n.
     '''
     # Your code here
-    if num == 0:
+    temp = num
+    temp = num
+    if temp == 0:
         return 0
-    else:
-        return (num%10) + sumofdigits(num//10)
+    if num == 1:
+        return 1
+    return (num%10) + sumofdigits(num//10)
 def main():
     '''main'''
     a_1 = input()
     print(sumofdigits(int(a_1)))
 
 if __name__ == "__main__":
+    import sys
+    sys.setrecursionlimit(25500)
     main()
