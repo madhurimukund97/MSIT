@@ -38,7 +38,7 @@ def payingdebtoffinayear(balance, annual_interest_rate):
         month_payment = month_payment + 10
         month = 1
         while month <= 12:
-            month_interest = (annual_interest_rate) /12.0
+            month_interest = (annual_interest_rate) / 12.0
             month_unpaid = (bal) - (month_payment)
             updated_bal = (month_unpaid) + (month_interest * month_unpaid)
             bal = updated_bal
