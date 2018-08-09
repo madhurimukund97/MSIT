@@ -55,11 +55,12 @@
 
 def payingdebtoffinayear(balance_bal, annual_interest_rate):
     '''paying debt off'''
+    balance = balance_bal
     month_interest = (annual_interest_rate) / 12.0
     month_payment_low = balance_bal / 12
-    month_payment_upp = ((balance_bal * (1 + month_interest) ** 12)) / 12.0
+    month_payment_upp = (balance * (1 + month_interest) ** 12) / 12.0
     newbal = balance_bal
-    epsilon = 0.0001
+    epsilon = 0.03
     num = (month_payment_low + month_payment_upp) / 2
     while True:
         month = 1
