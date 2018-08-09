@@ -49,7 +49,7 @@ def iswordguessed(secretword, lettersguessed):
     '''
     # FILL IN YOUR CODE HERE...
     result = 0
-    for char in enumerate(secretword):
+    for char in range(len(secretword)):
         if secretword[char] in lettersguessed:
             result += 1
     if result == len(secretword):
@@ -72,7 +72,7 @@ def getguessedword(secretword, lettersguessed):
     '''
     # FILL IN YOUR CODE HERE...
     list_1 = []
-    for char in enumerate(secretword):
+    for char in range(len(secretword)):
         if secretword[char] in lettersguessed:
             list_1.append(secretword[char])
         else:
@@ -90,11 +90,11 @@ def getavailableletters(lettersguessed):
     # FILL IN YOUR CODE HERE...
     string_1 = string.ascii_lowercase
     result = ''
-    for _ in string_1:
-        if _ in lettersguessed:
+    for char in string_1:
+        if char in lettersguessed:
             continue
         else:
-            result += _
+            result += char
     return ''.join(result)
 def hangman(secretword):
     '''
@@ -121,9 +121,9 @@ def hangman(secretword):
     print("I am thinking of a word which is", len(secretword), "letters word")
     print("-------------")
     flag = False
-    maxguessletters = len(secretword) + 3
+    maxguessletters = len(secretword) + 7
     while maxguessletters != 0:
-        print("There are ", len(secretword), "letters long")
+        #print("There are ", len(secretword), "letters long")
         print("You have", maxguessletters, "guesses left")
         print("Available letters", getavailableletters(lettersguessed))
         guess = input("Please guess a letter: ")
@@ -144,4 +144,3 @@ def hangman(secretword):
 # secretWord while you're testing)
 secretword = chooseword(wordlist).lower()
 hangman(secretword)
-    
