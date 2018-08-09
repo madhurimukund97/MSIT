@@ -30,6 +30,6 @@ def main():
             animals[l_1[0][0]] = [l_1[1]]
         else:
             animals[l_1[0][0]].append(l_1[1])
-    print(biggest(animals))   
+    print(biggest(animals))
 if __name__ == "__main__":
     main()
