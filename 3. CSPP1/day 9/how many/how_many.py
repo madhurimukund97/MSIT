@@ -15,8 +15,6 @@ def how_many(animals):
     for list_1 in value:
         sum1 += len(list_1)
     return sum1
-
-
 def main():
 
     '''animals = { 'a': ['aardvark'], 'b': ['baboon'], 'c': ['coati']}
