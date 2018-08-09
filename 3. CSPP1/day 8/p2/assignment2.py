@@ -19,10 +19,10 @@ def get_guessed_word(secret_word, letters_guessed):
     list_1 = []
     for i_1 in range(len(secret_word)):
         if secret_word[i_1] in letters_guessed:
-            list_1.append(secret_word[i])
+            list_1.append(secret_word[i_1])
         else:
             list_1.append('_')
-    return ''.join(list1)
+    return ''.join(list_1)
 
 def main():
     '''
