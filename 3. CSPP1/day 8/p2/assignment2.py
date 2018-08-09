@@ -15,11 +15,10 @@ def get_guessed_word(secret_word, letters_guessed):
       what letters in secret_word have been guessed so far.
     '''
     # FILL IN YOUR CODE HERE...
-    pass
     list_1 = []
-    for i_1 in range(len(secret_word)):
-        if secret_word[i_1] in letters_guessed:
-            list_1.append(secret_word[i_1])
+    for char in range(len(secret_word)):
+        if secret_word[char] in letters_guessed:
+            list_1.append(secret_word[char])
         else:
             list_1.append('_')
     return ''.join(list_1)

@@ -18,12 +18,12 @@ def is_word_guessed(secret_word, letters_guessed):
     '''
     # FILL IN YOUR CODE HERE...
     result = 0
-    for i_1 in range(enumerate(secret_word)):
-        if secret_word[i_1] in letters_guessed:
+    for char in range(len(secret_word)):
+        if secret_word[char] in letters_guessed:
             result += 1
-        if result == len(secret_word):
-            return True
-        return False
+    if result == len(secret_word):
+        return True
+    return False
 def main():
     '''
     Main function for the program
