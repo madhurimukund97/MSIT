@@ -18,7 +18,7 @@ def biggest(animals):
         if len(animals[keys]) > flag:
             flag = len(animals[keys])
             max_1 += keys
-        return max_1[-1]
+    return max_1[-1]
 def main():
     '''main'''
     n_1 = input()
