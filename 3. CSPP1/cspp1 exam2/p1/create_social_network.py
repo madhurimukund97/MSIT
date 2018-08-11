@@ -33,8 +33,10 @@ def create_social_network(data):
     '''
 
     # remove the pass below and start writing your code
-    temp = {}
+    if 'follows' not in data:
+        return {}
     data_1 = data.split('\n')
+    temp = {}
     data_2 = []
     if 'follows' not in data:
         return {}
