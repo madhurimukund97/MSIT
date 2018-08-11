@@ -36,11 +36,11 @@ def create_social_network(data):
 
     if 'follows' not in data:
         return {}
-    data_1 = data.split('')
+    data_1 = data.split('\n')
     temp = {}
     data_2 = []
-    for _ in data_1:
-        split_1 = _.split('follows')
+    for k in data_1:
+        split_1 = k.split('follows')
         for i, value in enumerate(split_1):
             split_1[i] = value.replace("", "")
         data_2.append(split_1)
