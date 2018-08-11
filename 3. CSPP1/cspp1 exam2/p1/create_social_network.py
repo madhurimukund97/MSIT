@@ -42,7 +42,7 @@ def create_social_network(data):
     for k in data_1:
         split_1 = k.split('follows')
         for i, value in enumerate(split_1):
-            split_1[i] = value.replace("", "")
+            split_1[i] = value.replace(" ", "")
         data_2.append(split_1)
     for j in data_2:
         if j[0] != "":
