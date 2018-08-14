@@ -113,7 +113,6 @@ if __name__ == "__main__":
     for x in range(COUNT):
         line = input()
         ha = line.split(" ")
-        print(ha)
         HANDS.append(ha)
     # test the poker function to see how it works
     print(' '.join(poker(HANDS)))
