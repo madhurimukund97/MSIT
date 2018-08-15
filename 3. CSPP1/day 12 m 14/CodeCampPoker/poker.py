@@ -143,7 +143,6 @@ def hand_rank(hand):
         return 6
     if is_flush(hand):
         return 5
-
     return 0
 
 def poker(hands):
