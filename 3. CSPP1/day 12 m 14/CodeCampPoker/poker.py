@@ -44,6 +44,20 @@ def is_straight(hand):
 
 
     '''
+def is_flush(hand):
+    '''
+        How do we find out if the given hand is a flush?
+        The hand has a list of cards represented as strings.
+        Do we need both the characters in the string? No.
+        The second character is good enough to determine a flush
+        Think of an algorithm: given the card suite how to check if it is a flush
+        Write the code for it and return True if it is a flush else return False
+    '''
+    length1 = len(hand)
+    for i in range(length1 - 1):
+        if hand[i][1] != hand[i+1][1]:
+            return False
+    return True
 def four_of_kind(hand):
     count = 0
     sorlst = sorted(sort(hand))
@@ -88,20 +102,7 @@ def full_house(hand):
     return False
 
 
-def is_flush(hand):
-    '''
-        How do we find out if the given hand is a flush?
-        The hand has a list of cards represented as strings.
-        Do we need both the characters in the string? No.
-        The second character is good enough to determine a flush
-        Think of an algorithm: given the card suite how to check if it is a flush
-        Write the code for it and return True if it is a flush else return False
-    '''
-    length1 = len(hand)
-    for i in range(length1 - 1):
-        if hand[i][1] != hand[i+1][1]:
-            return False
-    return True
+
 def hand_rank(hand):
     '''
         You will code this function. The goal of the function is to
@@ -131,7 +132,7 @@ def hand_rank(hand):
     if one_pair(hand):
         return 1
     if two_pair(hand):
-        return2
+        return 2
     if full_house(hand):
         return 7
     if four_of_kind(hand):
