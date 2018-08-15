@@ -4,6 +4,7 @@
     https://en.wikipedia.org/wiki/List_of_poker_hands
 '''
 def sort(hand):
+    '''sorting hands'''
     length1 = len(hand)
     newhand = []
     for i in range(length1):
@@ -40,10 +41,6 @@ def is_straight(hand):
             return False
     return True
 
-    '''s=s
-
-
-    '''
 def is_flush(hand):
     '''
         How do we find out if the given hand is a flush?
@@ -59,6 +56,7 @@ def is_flush(hand):
             return False
     return True
 def four_of_kind(hand):
+    '''four face values'''
     count = 0
     sorlst = sorted(sort(hand))
     for i in range(len(sorlst)-3):
@@ -69,6 +67,7 @@ def four_of_kind(hand):
     return False
 
 def three_of_kind(hand):
+    '''three face values '''
     count = 0
     sorlst = sorted(sort(hand))
     for i in range(len(sorlst)-2):
@@ -78,18 +77,21 @@ def three_of_kind(hand):
         return True
     return False
 def one_pair(hand):
+    '''one pair hand'''
     sorlst = sorted(sort(hand))
     setlst = set(sorlst)
     if len(sorlst) - len(setlst) == 1:
         return True
     return False
 def two_pair(hand):
+    '''two pair hands'''
     sorlst = sorted(sort(hand))
     setlst = set(sorlst)
     if len(sorlst) - len(setlst) == 2:
         return True
     return False
 def full_house(hand):
+    '''full house hand'''
     count = 0
     i = 0
     sorlst = sorted(sort(hand))
