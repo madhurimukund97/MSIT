@@ -3,19 +3,7 @@
     Read about poker hands here.
     https://en.wikipedia.org/wiki/List_of_poker_hands
 '''
-def is_straight(hand):
-    '''
-        How do we find out if the given hand is a straight?
-        The hand has a list of cards represented as strings.
-        There are multiple ways of checking if the hand is a straight.
-        Do we need both the characters in the string? No.
-        The first character is good enough to determine a straight
-        Think of an algorithm: given the card face value how to check if it a straight
-        Write the code for it and return True if it is a straight else return False
-    '''
-    #return len(set(lst)) == len(lst) and max(lst) - min(lst) == len(lst) - 1
-    #list1 = ["T=10", "J=11", "Q=12", "K=13", "A=14"]
-    #len1 = len(hand)
+def sort(hand):
     length1 = len(hand)
     newhand = []
     for i in range(length1):
@@ -31,11 +19,73 @@ def is_straight(hand):
             newhand.append(14)
         else:
             newhand.append(int(hand[i][0]))
-    newhand.sort()
+    return newhand
+def is_straight(hand):
+    '''
+        How do we find out if the given hand is a straight?
+        The hand has a list of cards represented as strings.
+        There are multiple ways of checking if the hand is a straight.
+        Do we need both the characters in the string? No.
+        The first character is good enough to determine a straight
+        Think of an algorithm: given the card face value how to check if it a straight
+        Write the code for it and return True if it is a straight else return False
+    '''
+    #return len(set(lst)) == len(lst) and max(lst) - min(lst) == len(lst) - 1
+    #list1 = ["T=10", "J=11", "Q=12", "K=13", "A=14"]
+    #len1 = len(hand)
+    length1 = len(hand)
+    sorlst = sorted(sort(hand))
     for i in range(length1-1):
-        if newhand[i+1] - newhand[i] != 1:
+        if sorlst[i+1] -sorlst[i] != 1:
             return False
     return True
+
+    '''s=s
+
+
+    '''
+def four_of_kind(hand):
+    count = 0
+    sorlst = sorted(sort(hand))
+    for i in range(len(sorlst)-3):
+        if sorlst[i] == sorlst[i+1] == sorlst[i+2] == sorlst[i+3]:
+            count += 1
+    if count == 1:
+        return True
+    return False
+
+def three_of_kind(hand):
+    count = 0
+    sorlst = sorted(sort(hand))
+    for i in range(len(sorlst)-2):
+        if sorlst[i] == sorlst[i+1] == sorlst[i+2]:
+            count += 1
+    if count == 1:
+        return True
+    return False
+def one_pair(hand):
+    sorlst = sorted(sort(hand))
+    setlst = set(sorlst)
+    if len(sorlst) - len(setlst) == 1:
+        return True
+    return False
+def two_pair(hand):
+    sorlst = sorted(sort(hand))
+    setlst = set(sorlst)
+    if len(sorlst) - len(setlst) == 2:
+        return True
+    return False
+def full_house(hand):
+    count = 0
+    i = 0
+    sorlst = sorted(sort(hand))
+    if sorlst[i] == sorlst[i+1] == sorlst[i+2] or sorlst[i+3] == sorlst[i+4]:
+        count += 1
+    elif sorlst[i+3] == sorlst[i+4] and sorlst[i] == sorlst[i+1] == sorlst[i+2]:
+        count += 1
+    if count == 1:
+        return True
+    return False
 
 
 def is_flush(hand):
@@ -76,12 +126,22 @@ def hand_rank(hand):
     # third would be a straight with the return value 1
     # any other hand would be the fourth best with the return value 0
     # max in poker function uses these return values to select the best hand
-    if is_flush(hand) and is_straight(hand):
+    if three_of_kind(hand):
         return 3
-    if is_straight(hand):
+    if one_pair(hand):
         return 1
+    if two_pair(hand):
+        return2
+    if full_house(hand):
+        return 7
+    if four_of_kind(hand):
+        return 4
+    if is_flush(hand) and is_straight(hand):
+        return 8
+    if is_straight(hand):
+        return 6
     if is_flush(hand):
-        return 2
+        return 5
 
     return 0
 
