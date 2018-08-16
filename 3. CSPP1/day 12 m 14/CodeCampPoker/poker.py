@@ -102,7 +102,20 @@ def full_house(hand):
     if count == 1:
         return True
     return False
+#def high_card(hand):
 
+
+
+
+def five_of_kind(hand):
+	count = 0
+    sorlst = sorted(sort(hand))
+    for i in range(len(sorlst)-4):
+        if sorlst[i] == sorlst[i+1] == sorlst[i+2] == sorlst[i+3] == sorlist[i+4]:
+            count += 1
+    if count == 1:
+        return True
+    return False
 
 
 def hand_rank(hand):
@@ -129,6 +142,8 @@ def hand_rank(hand):
     # third would be a straight with the return value 1
     # any other hand would be the fourth best with the return value 0
     # max in poker function uses these return values to select the best hand
+    if five_of_kind(hand):
+    	return 0
     if three_of_kind(hand):
         return 3
     if one_pair(hand):
@@ -145,7 +160,8 @@ def hand_rank(hand):
         return 5
     if is_flush(hand):
         return 6
-    return 0
+    if high_card(hand):
+    	return 9
 
 def poker(hands):
     '''
