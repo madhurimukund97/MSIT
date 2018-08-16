@@ -103,6 +103,7 @@ def full_house(hand):
         return True
     return False
 
+
 def hand_rank(hand):
     '''
         You will code this function. The goal of the function is to
@@ -127,8 +128,6 @@ def hand_rank(hand):
     # third would be a straight with the return value 1
     # any other hand would be the fourth best with the return value 0
     # max in poker function uses these return values to select the best hand
-    if five_of_kind(hand):
-    	return 0
     if three_of_kind(hand):
         return 3
     if one_pair(hand):
@@ -145,8 +144,7 @@ def hand_rank(hand):
         return 5
     if is_flush(hand):
         return 6
-    if high_card(hand):
-    	return 9
+    return 0
 
 def poker(hands):
     '''
