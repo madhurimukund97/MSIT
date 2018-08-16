@@ -102,12 +102,12 @@ def full_house(hand):
     if count == 1:
         return True
     return False
-def high_card(hand):
-    allfaces = [f for f,s in hand]
+#def high_card(hand):
+    '''allfaces = [f for f,s in hand]
     return 'high-card', sorted(allfaces, key=lambda f: face.index(f), reverse=True)
 handrankorder = (four_of_kind, full_house,
                   is_flush, is_straight, three_of_kind,
-                  two_pair, one_pair, high_card)
+                  two_pair, one_pair, high_card)'''
 
 def hand_rank(hand):
     '''
@@ -149,8 +149,6 @@ def hand_rank(hand):
         return 5
     if is_flush(hand):
         return 6
-    if high_card(hand):
-        return 9
     return 0
 
 def poker(hands):
