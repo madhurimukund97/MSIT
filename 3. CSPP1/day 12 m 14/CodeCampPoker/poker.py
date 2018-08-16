@@ -3,6 +3,19 @@
     Read about poker hands here.
     https://en.wikipedia.org/wiki/List_of_poker_hands
 '''
+
+#faces   = '2 3 4 5 6 7 8 9 10 j q k a'
+#face   = faces.split()
+def function1(hand):
+    '''Function call for one/two pair'''
+    string = '--23456789TJQKA'
+    rank = [n_1 for n_1 in string]
+    #print(rank_list)
+    set1 = set()
+    for n_1, _ in hand:
+        set1.add(rank.index(n_1))
+    return set1
+
 def sort(hand):
     '''sorting hands'''
     length1 = len(hand)
@@ -65,7 +78,6 @@ def four_of_kind(hand):
     if count == 1:
         return True
     return False
-
 def three_of_kind(hand):
     '''three face values '''
     count = 0
@@ -102,12 +114,19 @@ def full_house(hand):
     if count == 1:
         return True
     return False
-#def high_card(hand):
-    '''allfaces = [f for f,s in hand]
-    return 'high-card', sorted(allfaces, key=lambda f: face.index(f), reverse=True)
-handrankorder = (four_of_kind, full_house,
-                  is_flush, is_straight, three_of_kind,
-                  two_pair, one_pair, high_card)'''
+def high_card(hand):
+    '''high card'''
+    #for i in range(length1):
+    #    return 'high-card', sorted()
+    #allfaces = [f for f,s in hand]
+    #return 'high-card', sorted(allfaces, key=lambda f: face.index(f), reverse=True)
+#handrankorder =  (straightflush, fourofakind, fullhouse,
+#                  flush, straight, threeofakind,
+#                  twopair, onepair, highcard)
+    set1 = function1(hand)
+    if len(set1) == 5 and not is_flush(hand):
+        return max(set1)/100
+    return False
 
 def hand_rank(hand):
     '''
@@ -149,7 +168,9 @@ def hand_rank(hand):
         return 5
     if is_flush(hand):
         return 6
-    return 0
+    #if high_card(hand):
+    #    return 9
+    return high_card(hand)
 
 def poker(hands):
     '''
