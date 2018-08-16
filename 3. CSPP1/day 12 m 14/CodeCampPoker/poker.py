@@ -102,21 +102,6 @@ def full_house(hand):
     if count == 1:
         return True
     return False
-#def high_card(hand):
-
-
-
-
-def five_of_kind(hand):
-	count = 0
-    sorlst = sorted(sort(hand))
-    for i in range(len(sorlst)-4):
-        if sorlst[i] == sorlst[i+1] == sorlst[i+2] == sorlst[i+3] == sorlist[i+4]:
-            count += 1
-    if count == 1:
-        return True
-    return False
-
 
 def hand_rank(hand):
     '''
