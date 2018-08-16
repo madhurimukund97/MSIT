@@ -4,29 +4,8 @@
     https://en.wikipedia.org/wiki/List_of_poker_hands
 '''
 
-#faces   = '2 3 4 5 6 7 8 9 10 j q k a'
-#face   = faces.split()
 
-
-def sort(hand):
-    '''sorting hands'''
-    length1 = len(hand)
-    newhand = []
-    for i in range(length1):
-        if hand[i][0] == 'T':
-            newhand.append(10)
-        elif hand[i][0] == 'J':
-            newhand.append(11)
-        elif hand[i][0] == 'Q':
-            newhand.append(12)
-        elif hand[i][0] == 'K':
-            newhand.append(13)
-        elif hand[i][0] == 'A':
-            newhand.append(14)
-        else:
-            newhand.append(int(hand[i][0]))
-    return newhand
-def is_straight(hand):
+def is_straight(ranks):
     '''
         How do we find out if the given hand is a straight?
         The hand has a list of cards represented as strings.
@@ -36,104 +15,42 @@ def is_straight(hand):
         Think of an algorithm: given the card face value how to check if it a straight
         Write the code for it and return True if it is a straight else return False
     '''
-    #return len(set(lst)) == len(lst) and max(lst) - min(lst) == len(lst) - 1
-    #list1 = ["T=10", "J=11", "Q=12", "K=13", "A=14"]
-    #len1 = len(hand)
-    length1 = len(hand)
-    sorlst = sorted(sort(hand))
-    for i in range(length1-1):
-        if sorlst[i+1] -sorlst[i] != 1:
-            return False
-    return True
+    return len(set(ranks)) == 5 and (max(ranks)-min(ranks) == 4)
+
+
 
 def is_flush(hand):
     '''
         How do we find out if the given hand is a flush?
         The hand has a list of cards represented as strings.
-        Do we need both the characters in the string? No.
-        The second character is good enough to determine a flush
-        Think of an algorithm: given the card suite how to check if it is a flush
-        Write the code for it and return True if it is a flush else return False
     '''
-    length1 = len(hand)
-    for i in range(length1 - 1):
-        if hand[i][1] != hand[i+1][1]:
+    temp = hand[0]
+    for h_1 in hand:
+        if temp[1] != h_1[1]:
             return False
     return True
-def four_of_kind(hand):
-    '''four face values'''
-    count = 0
-    sorlst = sorted(sort(hand))
-    for i in range(len(sorlst)-3):
-        if sorlst[i] == sorlst[i+1] == sorlst[i+2] == sorlst[i+3]:
-            count += 1
-    if count == 1:
-        return True
-    return False
-def three_of_kind(hand):
-    '''three face values '''
-    count = 0
-    sorlst = sorted(sort(hand))
-    for i in range(len(sorlst)-2):
-        if sorlst[i] == sorlst[i+1] == sorlst[i+2]:
-            count += 1
-    if count == 1:
-        return True
-    return False
-def one_pair(hand):
-    '''one pair hand'''
-    sorlst = sorted(sort(hand))
-    setlst = set(sorlst)
-    if len(sorlst) - len(setlst) == 1:
-        return True
-    return False
-def two_pair(hand):
-    '''two pair hands'''
-    sorlst = sorted(sort(hand))
-    setlst = set(sorlst)
-    if len(sorlst) - len(setlst) == 2:
-        return True
-    return False
-def full_house(hand):
-    '''full house hand'''
-    count = 0
-    i = 0
-    sorlst = sorted(sort(hand))
-    if sorlst[i] == sorlst[i+1] == sorlst[i+2] or sorlst[i+3] == sorlst[i+4]:
-        count += 1
-    elif sorlst[i+3] == sorlst[i+4] and sorlst[i] == sorlst[i+1] == sorlst[i+2]:
-        count += 1
-    if count == 1:
-        return True
-    return False
 
-def function1(hand):
-    '''Function call for one/two pair'''
-    string = '--23456789TJQKA'
-    rank = [n_1 for n_1 in string]
-    #print(rank_list)
-    set1 = set()
-    for n_1, _ in hand:
-        set1.add(rank.index(n_1))
-    return set1
-def high_card(hand):
-    '''high card'''
-    #for i in range(length1):
-    #    return 'high-card', sorted()
-    #allfaces = [f for f,s in hand]
-    #return 'high-card', sorted(allfaces, key=lambda f: face.index(f), reverse=True)
-#handrankorder =  (straightflush, fourofakind, fullhouse,
-#                  flush, straight, threeofakind,
-#                  twopair, onepair, highcard)
-    #set1 = function1(hand)
-    #if len(set1) == 5 and not is_flush(hand):
-    #    return max(set1)/100
-    #return False
-    sorlist = sorted(sort(hand))
-    length1 = len(sorlist)
-    if length1 == 5 and not is_flush(hand):
-        return max(sorlist)/100
-    return False
+def card_ranks(hand):
+    '''card ranks'''
+    ranks = sorted(['--23456789TJQKA'.index(c) for c, s in hand], reverse=True)
+    return ranks
+
+def kind(ranks, n_1):
+    '''kind of a rank'''
+    for r_1 in ranks:
+        if ranks.count(r_1) == n_1:
+            return r_1
+    return 0
+
+def two_pair(ranks):
+    '''two pair'''
+    one = kind(ranks, 2)
+    two = kind(sorted(ranks), 2)
+    if one and two:
+        return (one, two)
+    return None
+
+
 
 def hand_rank(hand):
     '''
@@ -143,41 +60,25 @@ def hand_rank(hand):
         The first version should identify if the given hand is a straight
         or a flush or a straight flush.
     '''
-
-    # By now you should have seen the way a card is represented.
-    # If you haven't then go the main or poker function and print the hands
-    # Each card is coded as a 2 character string. Example Kind of Hearts is KH
-    # First character for face value 2,3,4,5,6,7,8,9,T,J,Q,K,A
-    # Second character for the suit S (Spade), H (Heart), D (Diamond), C (Clubs)
-    # What would be the logic to determine if a hand is a straight or flush?
-    # Let's not think about the logic in the hand_rank function
-    # Instead break it down into two sub functions is_straight and is_flush
-
-    # check for straight, flush and straight flush
-    # best hand of these 3 would be a straight flush with the return value 3
-    # the second best would be a flush with the return value 2
-    # third would be a straight with the return value 1
-    # any other hand would be the fourth best with the return value 0
-    # max in poker function uses these return values to select the best hand
-    if three_of_kind(hand):
-        return 3
-    if one_pair(hand):
-        return 1
-    if two_pair(hand):
-        return 2
-    if full_house(hand):
-        return 7
-    if four_of_kind(hand):
-        return 4
-    if is_flush(hand) and is_straight(hand):
-        return 8
-    if is_straight(hand):
-        return 5
+    ranks = card_ranks(hand)
+    if is_straight(ranks) and is_flush(hand):
+        return (8, ranks)
+    if kind(ranks, 4):
+        return (7, kind(ranks, 4), ranks)
+    if kind(ranks, 3) and kind(ranks, 2):
+        return (6, (kind(ranks, 3), kind(ranks, 2)), ranks)
     if is_flush(hand):
-        return 6
-    #if high_card(hand):
-    #    return 9
-    return high_card(hand)
+        return (5, ranks)
+    if is_straight(ranks):
+        return (4, ranks)
+    if kind(ranks, 3):
+        return (3, kind(ranks, 3), ranks)
+    if two_pair(ranks):
+        return (2, two_pair(ranks), ranks)
+    if kind(ranks, 2):
+        return (1, kind(ranks, 2), ranks)
+    return (0, ranks)
+
 
 def poker(hands):
     '''
@@ -189,6 +90,7 @@ def poker(hands):
 
         Output: Return the winning poker hand
     '''
+
 
     # the line below may be new to you
     # max function is provided by python library
