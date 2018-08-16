@@ -149,6 +149,8 @@ def hand_rank(hand):
         return 5
     if is_flush(hand):
         return 6
+    if high_card(hand):
+        return 9
     return 0
 
 def poker(hands):
