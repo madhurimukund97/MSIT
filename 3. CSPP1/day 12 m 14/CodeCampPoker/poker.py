@@ -125,14 +125,14 @@ def high_card(hand):
 #handrankorder =  (straightflush, fourofakind, fullhouse,
 #                  flush, straight, threeofakind,
 #                  twopair, onepair, highcard)
-    '''set1 = function1(hand)
-    if len(set1) == 5 and not is_flush(hand):
-        return max(set1)/100
-    return False'''
-    list2 = sorted(new(hand))
-    length1 = len(list2)
+    #set1 = function1(hand)
+    #if len(set1) == 5 and not is_flush(hand):
+    #    return max(set1)/100
+    #return False
+    sorlist = sorted(sort(hand))
+    length1 = len(sorlist)
     if length1 == 5 and not is_flush(hand):
-        return max(list2)/100
+        return max(sorlist)/100
     return False
 
 def hand_rank(hand):
