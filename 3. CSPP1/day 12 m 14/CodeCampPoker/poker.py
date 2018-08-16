@@ -6,15 +6,7 @@
 
 #faces   = '2 3 4 5 6 7 8 9 10 j q k a'
 #face   = faces.split()
-def function1(hand):
-    '''Function call for one/two pair'''
-    string = '--23456789TJQKA'
-    rank = [n_1 for n_1 in string]
-    #print(rank_list)
-    set1 = set()
-    for n_1, _ in hand:
-        set1.add(rank.index(n_1))
-    return set1
+
 
 def sort(hand):
     '''sorting hands'''
@@ -114,6 +106,16 @@ def full_house(hand):
     if count == 1:
         return True
     return False
+
+def function1(hand):
+    '''Function call for one/two pair'''
+    string = '--23456789TJQKA'
+    rank = [n_1 for n_1 in string]
+    #print(rank_list)
+    set1 = set()
+    for n_1, _ in hand:
+        set1.add(rank.index(n_1))
+    return set1
 def high_card(hand):
     '''high card'''
     #for i in range(length1):
@@ -123,9 +125,14 @@ def high_card(hand):
 #handrankorder =  (straightflush, fourofakind, fullhouse,
 #                  flush, straight, threeofakind,
 #                  twopair, onepair, highcard)
-    set1 = function1(hand)
+    '''set1 = function1(hand)
     if len(set1) == 5 and not is_flush(hand):
         return max(set1)/100
+    return False'''
+    list2 = sorted(new(hand))
+    length1 = len(list2)
+    if length1 == 5 and not is_flush(hand):
+        return max(list2)/100
     return False
 
 def hand_rank(hand):
