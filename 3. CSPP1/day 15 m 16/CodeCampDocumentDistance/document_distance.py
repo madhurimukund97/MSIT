@@ -1,14 +1,13 @@
 '''
     Document Distance - A detailed description is given in the PDF
 '''
-import collections
+#import collections
 import math
 #from collections import Counter
-# def frequencyDistribution(data):
-#    return {i: data.count(i) for i in data}
+def frequencyDistribution(data):
+    return {i: data.count(i) for i in data}
 
 def similarity(dict1, dict2):
-    
 
     '''
         Compute the document distance as given in the PDF
@@ -43,26 +42,19 @@ def similarity(dict1, dict2):
     for word in list(dict2):
         if word in dicta:
             dict2.remove(word)
-    # print(frequencyDistribution(dict1))
-    # print(frequencyDistribution(dict2))
-    counter1 = collections.Counter(dict1)
-    counter2 = collections.Counter(dict2)
+    counter1 = frequencyDistribution(dict1)
+    counter2 = frequencyDistribution(dict2)
+    # counter1 = collections.Counter(dict1)
+    # counter2 = collections.Counter(dict2)
     # print(counter1.values())
     # print(counter1)
     # print(counter2)
-    '''frequency count'''
-    '''from collections import Counter
-    list1=['apple','egg','apple','banana','egg','apple']
-    counts = Counter(list1)
-    print(counts)'''
     dict3 = []
     dict4 = []
     dict5 = []
     for word in counter1:
         if word in counter2:
             dict3.append(counter1[word]*counter2[word])
-    
-
     for word in counter1:
         dict4.append(counter1[word]**2)
 
@@ -75,10 +67,6 @@ def similarity(dict1, dict2):
 
 
     #print(dict1, dict2)
-    
-
-
-
 
 #def vector_angle(L1,L2):
     # numerator = inner_product(dict1,dict2)
