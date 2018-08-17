@@ -3,8 +3,9 @@
 '''
 #import collections
 import math
-#from collections import Counter
-def frequencyDistribution(data):
+
+def frequencydistribution(data):
+    '''frequency distribution'''
     return {i: data.count(i) for i in data}
 
 def similarity(dict1, dict2):
@@ -42,8 +43,8 @@ def similarity(dict1, dict2):
     for word in list(dict2):
         if word in dicta:
             dict2.remove(word)
-    counter1 = frequencyDistribution(dict1)
-    counter2 = frequencyDistribution(dict2)
+    counter1 = frequencydistribution(dict1)
+    counter2 = frequencydistribution(dict2)
     # counter1 = collections.Counter(dict1)
     # counter2 = collections.Counter(dict2)
     # print(counter1.values())
