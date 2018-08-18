@@ -2,6 +2,8 @@
     Document Distance - A detailed description is given in the PDF
 '''
 #import collections
+#re.sub('[^a-z\ ]','',word).strip()
+
 import math
 
 def frequencydistribution(data):
