@@ -37,19 +37,19 @@ def search(search_index, query):
         collect all the values for the words that are in the search_index
         make a set of doc_id and return
     '''
-    query = query.lowercase()
+    '''query = query.lowercase()
     if word in search_index:#Hash:Direct lookup, no need to iterate
-        value += word.values
+        value += word.values'''
 def process_queries(search_index, queries):
     '''
         function to process the search queries
         iterate through all the queries and call the search function
         print the results returned by search function
     '''
-    func1 = {}
+    '''func1 = {}
     for _ in queries:
         func1 += func1.search()
-    return func1
+    return func1'''
 
 def main():
     '''
