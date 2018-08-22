@@ -21,7 +21,7 @@
     }
 '''
 # helper function to load the stop words from a file
-import collections
+
 import string
 def load_stopwords(filename):
     '''
@@ -40,13 +40,13 @@ def word_list(text):
         Clean up the text by remvoing all the non alphabet characters
         return a list of words
     '''
+
+
     text = text.lower().split()
     print(text)
     char1 = string.ascii_letters + ' '
     text = ''.join(f_1 for f_1 in text if f_1 in char1)
-    for word in list(text):
-        print(word)
-
+    return text
 
 def build_search_index(docs):
     '''
@@ -69,7 +69,8 @@ def build_search_index(docs):
         for index, item in enumerate(docs):
             if word in docs:
                 docs.remove(word)
-            counter1 = collections.Counter(word)
+                
+            
 # helper function to print the search index
 # use this to verify how the search index looks
 def print_search_index(index):
