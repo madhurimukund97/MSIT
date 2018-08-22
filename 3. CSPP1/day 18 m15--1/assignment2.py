@@ -43,7 +43,7 @@ def is_word(word_list, word):
     False
     '''
     word = word.lower()
-    word = word.strip(" !@#$%^&*()-_+={}[]|\:;'<>?,./\"")
+    word = word.strip(" !@#$%^&*()-_+={}[]|;'<>?,./\"")
     return word in word_list
 
 ### DO NOT MODIFY THIS FUNCTION ###
@@ -58,7 +58,7 @@ def get_story_string():
 
 WORDLIST_FILENAME = 'words.txt'
 
-class Message(object):
+class Message:
     ''' Message object '''
     ### DO NOT MODIFY THIS METHOD ###
     def __init__(self, text):
@@ -264,7 +264,8 @@ def decrypt_story():
     ''' Decrypt the story text using CiphertextMessage class and return the
         shift value and decrypted string in a tuple.
     '''
-    pass #delete this line when you write your code.
+    decrypt = CiphertextMessage(get_story_string())
+    return decrypt.decrypt_message()
 
 ### DO NOT MODIFY THIS METHOD ###
 def main():

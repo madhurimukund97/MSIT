@@ -21,7 +21,7 @@
     }
 '''
 # helper function to load the stop words from a file
-
+import re
 import string
 def load_stopwords(filename):
     '''
@@ -33,19 +33,16 @@ def load_stopwords(filename):
             stopwords[line.strip()] = 0
     return stopwords
 
-
 def word_list(text):
     '''
         Change case to lower and split the words using a SPACE
         Clean up the text by remvoing all the non alphabet characters
         return a list of words
     '''
-
-
-    text = text.lower().split()
-    print(text)
-    char1 = string.ascii_letters + ' '
-    text = ''.join(f_1 for f_1 in text if f_1 in char1)
+    text = text.lower().split(' ')
+    text = [re.sub('[^a-z]', '',letters) for letters in text]
+    stopwords = load_stopwords('stopwords.txt')
+    text = [letters for letters in text if letters not in stopwords]
     return text
 
 def build_search_index(docs):
@@ -64,11 +61,20 @@ def build_search_index(docs):
         # add or update the words of the doc to the search index
 
     # return search index
-    search_index={}
-    for word in list(docs):
-        for index, item in enumerate(docs):
-            if word in docs:
-                docs.remove(word)
+    
+    length_docs = len(docs)
+    dict1 = {}
+    for i in range(length_docs):
+        doc = word_list(docs[i])
+        for j in doc:
+            count = doc.count(j)
+            if j in dict1:
+                if (i, count) not in dict1[j]:
+                    dict1[j].append((i, count))
+            else:
+                dict1[j] = [(i, count)]
+    return dict1
+    
                 
             
 # helper function to print the search index
