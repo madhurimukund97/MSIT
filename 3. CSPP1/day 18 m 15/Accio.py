@@ -29,6 +29,6 @@ def studySpell(spell):
     print(spell)
 
 spell = Accio()
-spell.execute()
+#spell.execute()
 studySpell(spell)
-studySpell(Confundo())
+#studySpell(Confundo())
