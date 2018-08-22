@@ -89,7 +89,6 @@ class Message:
 
         full_keys = lower_keys + upper_keys
         full_values = shift_lower_values + upper_shift_values
-
         self.shift_dict = dict(zip(full_keys, full_values))
         return self.shift_dict
 ### Paste your implementation of the Message class here
