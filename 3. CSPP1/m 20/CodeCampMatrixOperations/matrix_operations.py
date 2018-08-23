@@ -33,7 +33,7 @@ def add_matrix(m1, m2):
                 sum1[ind][jind] = result
         return sum1
     else:
-        print("Error: Matrix shapes invalid")
+        print("Error: Matrix shapes invalid for addition")
         print("None")
     
 
@@ -54,7 +54,7 @@ def read_matrix():
         list1.append(row)
         res += len(row)
     if res != rows * cols:
-        print("Error: Invalid input")
+        print("Error: Invalid input for the matrix")
     else:
         return list1
 
