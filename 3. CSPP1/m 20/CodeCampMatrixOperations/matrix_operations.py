@@ -1,6 +1,6 @@
 '''mult matrix'''
 import copy
-def mult_matrix(m1, m2):
+def mult_matrix(m_1, m_2):
     '''
         check if the matrix1 columns = matrix2 rows
         mult the matrices and return the result matrix
@@ -8,22 +8,22 @@ def mult_matrix(m1, m2):
         and return None
         error message should be "Error: Matrix shapes invalid for mult"
     '''
-    if len(m1) != len(m2[0]):
+    if len(m_1) != len(m_2[0]):
         print("Error: Matrix shapes invalid for mult")
         return None
-    _ = copy.deepcopy(m1)
+    _ = copy.deepcopy(m_1)
     mat = []
-    for i in range(len(m1)):
+    for i in range(len(m_1)):
         mat1 = []
-        for j in range(len(m2[0])):
+        for j in range(len(m_2[0])):
             mult = 0
-            for k in range(len(m2)):
-                mult += m1[i][k] * m2[k][j]
+            for k in range(len(m_2)):
+                mult += m_1[i][k] * m_2[k][j]
             mat1.append(mult)
         mat.append(mat1)
     return mat
 
-def add_matrix(m1, m2):
+def add_matrix(m_1, m_2):
     '''
         check if the matrix shapes are similar
         add the matrices and return the result matrix
@@ -31,13 +31,13 @@ def add_matrix(m1, m2):
         and return None
         error message should be "Error: Matrix shapes invalid for addition"
     '''
-    if len(m1) != len(m2):
+    if len(m_1) != len(m_2):
         print("Error: Matrix shapes invalid for addition")
         return None
-    matrix = copy.deepcopy(m1)
-    for i in range(len(m1)):
-        for j in range(len(m1[0])):
-            matrix[i][j] = m1[i][j] + m2[i][j]
+    matrix = copy.deepcopy(m_1)
+    for i in range(len(m_1)):
+        for j in range(len(m_1[0])):
+            matrix[i][j] = m_1[i][j] + m_2[i][j]
     return matrix
 def read_matrix(size):
     '''
@@ -74,7 +74,6 @@ def main():
     size2 = input()
     size2 = list(map(int, size2.split(',')))
     matrix3 = read_matrix(size2)
-
     if matrix2 == None or matrix3 == None:
         print("Error: Invalid input for the matrix")
     else:
