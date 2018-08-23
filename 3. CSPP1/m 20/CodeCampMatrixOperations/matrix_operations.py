@@ -1,3 +1,4 @@
+'''mult matrix'''
 import copy
 def mult_matrix(m1, m2):
     '''
@@ -10,13 +11,17 @@ def mult_matrix(m1, m2):
     if len(m1) != len(m2[0]):
         print("Error: Matrix shapes invalid for mult")
         return None
-    matrix = copy.deepcopy(m1)
+    _ = copy.deepcopy(m1)
+    mat = []
     for i in range(len(m1)):
+        mat1 = []
         for j in range(len(m2[0])):
-            matrix[i][j] = 0
+            mult = 0
             for k in range(len(m2)):
-                matrix[i][j] += m1[i][k] * m2[k][j]
-    return matrix
+                mult += m1[i][k] * m2[k][j]
+            mat1.append(mult)
+        mat.append(mat1)
+    return mat
 
 def add_matrix(m1, m2):
     '''
@@ -26,7 +31,6 @@ def add_matrix(m1, m2):
         and return None
         error message should be "Error: Matrix shapes invalid for addition"
     '''
-    
     if len(m1) != len(m2):
         print("Error: Matrix shapes invalid for addition")
         return None
@@ -35,8 +39,6 @@ def add_matrix(m1, m2):
         for j in range(len(m1[0])):
             matrix[i][j] = m1[i][j] + m2[i][j]
     return matrix
-    
-
 def read_matrix(size):
     '''
         read the matrix dimensions from input
@@ -58,6 +60,7 @@ def read_matrix(size):
     return matrix
 
 def main():
+    '''main'''
     # read matrix 1
 
     # read matrix 2
