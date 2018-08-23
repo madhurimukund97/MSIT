@@ -72,5 +72,8 @@ def main():
     num2 = input().split(',')
     matrix2 = read_matrix(num2)
 
+    print(add_matrix(m1, m2))
+    print(mul_matrix(m1, m2))
+
 if __name__ == '__main__':
     main()
