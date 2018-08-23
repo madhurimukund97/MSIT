@@ -8,16 +8,19 @@ def mult_matrix(m_1, m_2):
         and return None
         error message should be "Error: Matrix shapes invalid for mult"
     '''
+    var = len(m_1)
+    var1 = len(m_2[0])
+    var2 = len(m_2)
     if len(m_1) != len(m_2[0]):
         print("Error: Matrix shapes invalid for mult")
         return None
     _ = copy.deepcopy(m_1)
     mat = []
-    for i in range(len(m_1)):
+    for i in range(var):
         mat1 = []
-        for j in range(len(m_2[0])):
+        for j in range(var1):
             mult = 0
-            for k in range(len(m_2)):
+            for k in range(var2):
                 mult += m_1[i][k] * m_2[k][j]
             mat1.append(mult)
         mat.append(mat1)
@@ -31,12 +34,14 @@ def add_matrix(m_1, m_2):
         and return None
         error message should be "Error: Matrix shapes invalid for addition"
     '''
+    var3 = len(m_1)
+    var4 = len(m_1[0])
     if len(m_1) != len(m_2):
         print("Error: Matrix shapes invalid for addition")
         return None
     matrix = copy.deepcopy(m_1)
-    for i in range(len(m_1)):
-        for j in range(len(m_1[0])):
+    for i in range(var3):
+        for j in range(var4):
             matrix[i][j] = m_1[i][j] + m_2[i][j]
     return matrix
 def read_matrix(size):
@@ -74,7 +79,7 @@ def main():
     size2 = input()
     size2 = list(map(int, size2.split(',')))
     matrix3 = read_matrix(size2)
-    if matrix2 == None or matrix3 == None:
+    if matrix2 is None or matrix3 is None:
         print("Error: Invalid input for the matrix")
     else:
         add = add_matrix(matrix2, matrix3)
