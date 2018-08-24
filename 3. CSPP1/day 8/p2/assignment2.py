@@ -16,7 +16,8 @@ def get_guessed_word(secret_word, letters_guessed):
     '''
     # FILL IN YOUR CODE HERE...
     list_1 = []
-    for char in range(len(secret_word)):
+    word1 = len(secret_word)
+    for char in range(word1):
         if secret_word[char] in letters_guessed:
             list_1.append(secret_word[char])
         else:

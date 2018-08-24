@@ -17,9 +17,9 @@ def loadwords():
     """
     print("Loading word list from file...")
     # inFile: file
-    inFile = open(WORDLIST_FILENAME, 'r')
+    infile = open(WORDLIST_FILENAME, 'r')
     # line: string
-    line = inFile.readline()
+    line = infile.readline()
     # wordlist: list of strings
     wordlist = line.split()
     print("  ", len(wordlist), "words loaded.")
@@ -49,8 +49,8 @@ def iswordguessed(secretword, lettersguessed):
     '''
     # FILL IN YOUR CODE HERE...
     result = 0
-    for char in range(len(secretword)):
-        if secretword[char] in lettersguessed:
+    for char in secretword:
+        if char in lettersguessed:
             result += 1
     if result == len(secretword):
         return True
