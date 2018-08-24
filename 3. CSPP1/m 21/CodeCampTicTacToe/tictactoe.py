@@ -1,6 +1,6 @@
 def tic_tac_toe(mat):
 	win = []
-	for row in matrix:
+	for row in mat:
 		if row[0] == row[1] == row[2]:
 			win.append(row[0])
 	for ind in range(0, 3):
@@ -23,12 +23,11 @@ def tic_tac_toe(mat):
 		print("invalid game")
 		return None
 def main():
-	list = []
+	list1 = []
 	for _ in range(0, 3):
-		cols = input().split('')
-		list.append(cols)
-	tic_tac_toe(mat)
-
+		cols = input().split(' ')
+		list1.append(cols)
+	tic_tac_toe(list1)
 if __name__ == '__main__':
 	main()
 
