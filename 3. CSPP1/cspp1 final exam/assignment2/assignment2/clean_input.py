@@ -7,7 +7,7 @@ import re
 def clean_string(text):
     '''clean a string'''
     for letters in text:
-        text = re.sub('[^A-Za-z0-9]+', '', letters)
+        text = re.sub('[^A-Za-z0-9]', '', letters)
         print(text, end='')
     return text
 def main():
