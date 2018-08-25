@@ -9,7 +9,7 @@ def clean_string(text):
     for letters in text:
         text = re.sub('[^A-Za-z0-9]+', '', letters)
         print(text, end='')
-    return text
+    
 def main():
     '''main'''
     string = input()
